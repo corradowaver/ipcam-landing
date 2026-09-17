@@ -1,0 +1,331 @@
+#ipcam-prototype .home-hero-figure {
+  margin: 0;
+  min-width: 0;
+}
+#ipcam-prototype .home-frame-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ip-muted);
+}
+#ipcam-prototype .home-photo-frame {
+  position: relative;
+  isolation: isolate;
+}
+#ipcam-prototype .home-photo-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--ip-radius);
+}
+#ipcam-prototype .home-corners::before,
+#ipcam-prototype .home-corners::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+  pointer-events: none;
+}
+#ipcam-prototype .home-corners::before {
+  top: -5px;
+  left: -5px;
+  border-top: 1px solid var(--ip-ink);
+  border-left: 1px solid var(--ip-ink);
+}
+#ipcam-prototype .home-corners::after {
+  bottom: -5px;
+  right: -5px;
+  border-bottom: 1px solid var(--ip-ink);
+  border-right: 1px solid var(--ip-ink);
+}
+#ipcam-prototype .home-frame-coordinate {
+  position: absolute;
+  bottom: 16px;
+  left: 18px;
+  padding: 4px 7px;
+  border: 1px solid #ffffff70;
+  color: #fff;
+  background: #293342bf;
+  border-radius: 4px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+#ipcam-prototype .home-detections {
+  position: absolute;
+  inset: 0;
+}
+#ipcam-prototype .home-detection {
+  position: absolute;
+  border: 2px solid var(--ip-mint);
+  border-radius: 6px;
+}
+#ipcam-prototype .home-detection[data-state='missing'] {
+  border-color: var(--ip-pink);
+  border-style: dashed;
+}
+#ipcam-prototype .home-detection-label {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  transform: translateY(-100%);
+  background: var(--ip-mint);
+  padding: 3px 6px;
+  color: var(--ip-on-accent);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  border-radius: 5px 5px 0 0;
+}
+#ipcam-prototype .home-detection[data-state='missing'] .home-detection-label {
+  background: var(--ip-pink);
+}
+#ipcam-prototype .home-photo-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding-block: 12px 2px;
+}
+#ipcam-prototype .home-frame-description {
+  font-size: 11px;
+  color: var(--ip-muted);
+}
+#ipcam-prototype .home-analysis-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  color: var(--ip-ink);
+  background: none;
+  font-size: 11px;
+  white-space: nowrap;
+}
+#ipcam-prototype .home-switch {
+  width: 29px;
+  height: 18px;
+  padding: 3px;
+  border: 1px solid var(--ip-field-line);
+  border-radius: 20px;
+  background: transparent;
+  transition: background 200ms ease;
+}
+#ipcam-prototype .home-switch::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ip-ink);
+  transition: transform 200ms ease;
+}
+#ipcam-prototype .home-analysis-toggle[aria-pressed='true'] .home-switch {
+  background: var(--ip-mint);
+  border-color: var(--ip-mint);
+}
+#ipcam-prototype
+  .home-analysis-toggle[aria-pressed='true']
+  .home-switch::after {
+  transform: translateX(11px);
+  background: var(--ip-on-accent);
+}
+#ipcam-prototype .home-disclosure {
+  display: block;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ip-muted);
+}
+#ipcam-prototype .home-case-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: 64px 64px;
+  align-items: start;
+}
+#ipcam-prototype .home-case {
+  min-width: 0;
+}
+#ipcam-prototype .home-case:nth-child(2) {
+  margin-top: 128px;
+}
+#ipcam-prototype .home-case figure {
+  margin: 0;
+}
+#ipcam-prototype .home-case .home-photo-frame {
+  margin-bottom: 14px;
+}
+#ipcam-prototype .home-case .home-photo-frame img {
+  object-fit: cover;
+}
+#ipcam-prototype .home-case:nth-child(2) .home-photo-frame img {
+  aspect-ratio: 1.05;
+  object-position: 40% center;
+}
+#ipcam-prototype .home-case-content {
+  margin-top: 24px;
+}
+#ipcam-prototype .home-case-heading {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+#ipcam-prototype .home-case h3 {
+  font-size: 29px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+#ipcam-prototype .home-case-heading > span {
+  font-size: 11px;
+  color: var(--ip-muted);
+}
+#ipcam-prototype .home-case-task {
+  margin-top: 14px;
+  max-width: 410px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ip-muted);
+}
+#ipcam-prototype .home-case details {
+  border-top: 1px solid var(--ip-line);
+  margin-top: 22px;
+}
+#ipcam-prototype .home-case summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  padding-block: 14px;
+  min-height: 52px;
+}
+#ipcam-prototype .home-case summary::-webkit-details-marker {
+  display: none;
+}
+#ipcam-prototype .home-case summary::after {
+  content: '+';
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ip-line);
+  border-radius: 50%;
+  width: 29px;
+  height: 29px;
+  font-size: 20px;
+  font-weight: 400;
+  transition:
+    transform 220ms ease,
+    background 220ms ease;
+  flex: 0 0 auto;
+}
+#ipcam-prototype .home-case summary:hover::after {
+  background: var(--ip-ai-surface);
+}
+#ipcam-prototype .home-case details[open] summary::after {
+  transform: rotate(45deg);
+  background: var(--ip-surface-soft);
+}
+#ipcam-prototype .home-case-detail {
+  padding-block: 4px 18px;
+}
+#ipcam-prototype .home-case-detail strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+#ipcam-prototype .home-case-detail p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--ip-muted);
+}
+#ipcam-prototype .home-case:last-child {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  align-items: center;
+  gap: 64px;
+  border-top: 1px solid var(--ip-line);
+  padding-top: 44px;
+}
+#ipcam-prototype .home-case:last-child .home-photo-frame img {
+  aspect-ratio: 2.05;
+  object-position: center 44%;
+}
+#ipcam-prototype .home-case:last-child .home-case-content {
+  margin-top: 0;
+}
+@media (max-width: 1100px) {
+  #ipcam-prototype .home-photo-controls {
+    flex-wrap: wrap;
+    gap: 0 12px;
+  }
+  #ipcam-prototype .home-case-grid,
+  #ipcam-prototype .home-case:last-child {
+    gap: 42px 32px;
+  }
+  #ipcam-prototype .home-case h3 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 600px) {
+  #ipcam-prototype .home-frame-meta {
+    font-size: 11px;
+    gap: 4px;
+  }
+  #ipcam-prototype .home-detection-label {
+    font-size: 11px;
+    padding: 3px 4px;
+  }
+  #ipcam-prototype .home-detection {
+    border-width: 1.5px;
+  }
+  #ipcam-prototype .home-frame-coordinate {
+    bottom: 12px;
+    left: 12px;
+    font-size: 11px;
+  }
+  #ipcam-prototype .home-frame-description {
+    font-size: 11px;
+  }
+  #ipcam-prototype .home-analysis-toggle {
+    font-size: 11px;
+    gap: 6px;
+  }
+  #ipcam-prototype .home-disclosure {
+    font-size: 11px;
+  }
+  #ipcam-prototype .home-case-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+  #ipcam-prototype .home-case:nth-child(2) {
+    margin-top: 0;
+  }
+  #ipcam-prototype .home-case:nth-child(2) .home-photo-frame img {
+    aspect-ratio: 3 / 2;
+  }
+  #ipcam-prototype .home-case:last-child {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+  #ipcam-prototype .home-case:last-child .home-photo-frame img {
+    aspect-ratio: 3 / 2;
+  }
+  #ipcam-prototype .home-case:last-child .home-case-content {
+    margin-top: 24px;
+  }
+}

@@ -1,0 +1,73 @@
+.callout {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  min-height: 330px;
+  padding: 56px;
+  margin-block: 28px 32px;
+  border-radius: var(--radius-card);
+  background: var(--color-surface-soft);
+  gap: 32px;
+}
+.callout::before {
+  content: '04 / НАЧНЁМ С ВАШЕЙ ЗАДАЧИ';
+  position: absolute;
+  top: 32px;
+  left: 56px;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+}
+.callout::after {
+  content: '+';
+  position: absolute;
+  top: 21px;
+  right: 32px;
+  font-weight: 300;
+  font-size: 30px;
+}
+.callout h2 {
+  max-width: none;
+  font-size: clamp(36px, 4.8vw, 66px);
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+  font-weight: 500;
+  padding-top: 24px;
+}
+.callout > button {
+  flex: none;
+  padding: 20px 26px;
+  white-space: nowrap;
+}
+@media (max-width: 800px) {
+  .callout {
+    padding: 64px 32px 36px;
+    min-height: 300px;
+  }
+  .callout::before {
+    left: 32px;
+  }
+}
+@media (max-width: 600px) {
+  .callout {
+    flex-direction: column;
+    align-items: start;
+    padding: 66px 24px 32px;
+    gap: 28px;
+    margin-top: 0;
+  }
+  .callout::before {
+    left: 24px;
+    font-size: 9px;
+  }
+  .callout h2 {
+    font-size: clamp(33px, 8.2vw, 48px);
+    padding: 0;
+  }
+  .callout > button {
+    width: 100%;
+    justify-content: space-between;
+    padding: 16px 20px;
+  }
+}

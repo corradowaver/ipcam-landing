@@ -1,0 +1,57 @@
+#ipcam-prototype[data-motion='on'] [data-reveal][data-revealed='true'] {
+  animation: home-enter 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+#ipcam-prototype[data-motion='on'] [data-sequence][data-revealed='true'] > * {
+  animation: home-enter 550ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--sequence-delay, 0ms);
+}
+#ipcam-prototype[data-motion='on']
+  .sub-sequence[data-revealed='true']
+  li::before {
+  animation: sub-line-enter 650ms ease both;
+  animation-delay: var(--sequence-delay);
+}
+#ipcam-prototype[data-motion='on']
+  .sub-hero-photo[data-revealed='true']
+  .sub-frame-guide,
+#ipcam-prototype[data-motion='on']
+  .about-observation
+  [data-revealed='true']
+  .sub-frame-guide {
+  animation: sub-frame-enter 650ms ease 250ms both;
+}
+#ipcam-prototype[data-motion='on']
+  .service-demonstration[data-revealed='true']
+  .home-detection {
+  animation: home-detect 550ms ease both;
+  animation-delay: var(--detection-delay);
+}
+#ipcam-prototype[data-motion='on']
+  :is(.service-stage, .case-study details, .price-factor-list details)[open]
+  > :not(summary) {
+  animation: home-detail 220ms ease both;
+}
+@keyframes sub-line-enter {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes sub-frame-enter {
+  from {
+    opacity: 0;
+    transform: scale(1.025);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+#ipcam-prototype[data-motion='off'] *,
+#ipcam-prototype[data-motion='off'] *::before,
+#ipcam-prototype[data-motion='off'] *::after {
+  animation: none !important;
+  transition: none !important;
+}

@@ -1,0 +1,149 @@
+#ipcam-prototype .case-jump-nav {
+  display: flex;
+  gap: 12px;
+  padding-block: 28px 50px;
+  flex-wrap: wrap;
+}
+#ipcam-prototype .case-jump-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 1px solid var(--ip-line);
+  border-radius: 16px;
+  color: var(--ip-ink);
+  text-decoration: none;
+  font-size: 14px;
+  transition:
+    background 200ms,
+    transform 200ms;
+}
+#ipcam-prototype .case-jump-nav a > span:first-child {
+  font-size: 11px;
+  color: var(--ip-muted);
+}
+#ipcam-prototype .case-jump-nav a:hover {
+  background: var(--ip-surface-raised);
+  transform: translateY(-2px);
+}
+#ipcam-prototype .case-study {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr;
+  gap: 64px;
+  padding-block: 48px;
+  border-top: 1px solid var(--ip-line);
+  scroll-margin-top: 20px;
+  align-items: center;
+}
+#ipcam-prototype .case-study:nth-child(2) {
+  grid-template-columns: 0.8fr 1.3fr;
+}
+#ipcam-prototype .case-study:nth-child(2) figure {
+  order: 2;
+}
+#ipcam-prototype .case-study figure {
+  margin: 0;
+  min-width: 0;
+}
+#ipcam-prototype .case-study figcaption {
+  margin-top: 16px;
+}
+#ipcam-prototype .case-study h2 {
+  font-size: 36px;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-top: 18px;
+}
+#ipcam-prototype .case-study-task {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 22px;
+}
+#ipcam-prototype .case-study details {
+  margin-top: 24px;
+  border-top: 1px solid var(--ip-line);
+}
+#ipcam-prototype .case-study summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 54px;
+  list-style: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+#ipcam-prototype .case-study summary::-webkit-details-marker {
+  display: none;
+}
+#ipcam-prototype .case-study summary::after {
+  content: '↗';
+  font-size: 22px;
+  transition: transform 220ms ease;
+}
+#ipcam-prototype .case-study details[open] summary::after {
+  transform: rotate(90deg);
+}
+#ipcam-prototype .case-study-detail {
+  padding-bottom: 10px;
+}
+#ipcam-prototype .case-study-detail strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+#ipcam-prototype .case-study-detail p {
+  font-size: 14px;
+  color: var(--ip-muted);
+  margin-block: 8px 18px;
+}
+#ipcam-prototype .case-study-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+#ipcam-prototype .case-study-index::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+}
+@media (max-width: 1100px) {
+  #ipcam-prototype .case-study {
+    gap: 32px;
+  }
+  #ipcam-prototype .case-study h2 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 800px) {
+  #ipcam-prototype .case-study,
+  #ipcam-prototype .case-study:nth-child(2) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  #ipcam-prototype .case-study:nth-child(2) figure {
+    order: 0;
+  }
+  #ipcam-prototype .case-study-content {
+    max-width: 560px;
+  }
+}
+@media (max-width: 600px) {
+  #ipcam-prototype .case-jump-nav {
+    gap: 8px;
+    padding-block: 22px 32px;
+  }
+  #ipcam-prototype .case-jump-nav a {
+    gap: 12px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  #ipcam-prototype .case-study {
+    padding-block: 32px;
+  }
+}

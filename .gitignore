@@ -1,0 +1,43 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Local runtimes, caches and agent settings
+/.tools/
+/.codex/
+/.agents/
+.cache/
+.vite/
+.npm/
+.eslintcache
+.stylelintcache
+
+# Test and coverage output
+playwright-report/
+test-results/
+blob-report/
+coverage/
+
+# IDE and editor state
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local configuration and credentials (keep a sanitized example)
+*.local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Operating system files and logs
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log

@@ -1,0 +1,42 @@
+.intro {
+  max-width: 41.875rem;
+  padding: 3.125rem 0 2.125rem;
+}
+
+.intro h1 {
+  margin-block: 1.25rem;
+  font-size: clamp(2.25rem, 5.5vw, 3.625rem);
+  font-weight: 700;
+  letter-spacing: -0.15625rem;
+  line-height: 1.06;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5625rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.0875rem;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-mint);
+  content: '';
+}
+
+@media (max-width: 600px) {
+  .intro {
+    padding: 2.25rem 0 1.5625rem;
+  }
+
+  .intro h1 {
+    font-size: 2.375rem;
+    letter-spacing: -0.09375rem;
+  }
+}

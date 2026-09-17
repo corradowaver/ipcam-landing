@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="AI-видеоаналитика для наблюдения за людьми, движением и видеопотоком на предприятии."
+    />
+    <script>
+      {
+        let theme = matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
+        try {
+          const saved = localStorage.getItem('vmeste-theme')
+          if (saved === 'light' || saved === 'dark') {
+            theme = saved
+            document.documentElement.dataset.themePreference = saved
+          }
+        } catch {
+          // Report once through the application logger after it mounts.
+          document.documentElement.dataset.themeStorageError = 'true'
+        }
+        document.documentElement.dataset.theme = theme
+      }
+    </script>
+    <title>Вместе — AI-видеоаналитика для предприятий</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

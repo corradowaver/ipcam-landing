@@ -1,0 +1,52 @@
+/* Shared semantic roles; the saved HTML variants only choose data-theme. */
+#ipcam-prototype {
+  --ip-paper: #f6f7fb;
+  --ip-surface: #ffffff;
+  --ip-surface-soft: #f2f5ff;
+  --ip-surface-raised: #e9edf7;
+  --ip-ink: #293342;
+  --ip-muted: #596275;
+  --ip-heading-muted: #727b8c;
+  --ip-line: #d9deea;
+  --ip-line-strong: #aab3c2;
+  --ip-field-line: #758094;
+  --ip-grid-line: #d9deea55;
+  --ip-pink: #f49097;
+  --ip-yellow: #f5e960;
+  --ip-mint: #55d6c2;
+  --ip-lavender: #dfb2f4;
+  --ip-on-accent: #293342;
+  --ip-ai-surface: #f0e6f7;
+  --ip-ai-ink: #543b69;
+  --ip-ai-line: #d7c4e4;
+  --ip-ai-grid: #543b6930;
+  --ip-mint-surface: #e2f4ef;
+  --ip-marker: #f5e960;
+  --ip-on-marker: #293342;
+  --ip-error: #8f3148;
+  --ip-shadow: 0 10px 28px rgb(41 51 66 / 14%);
+  color-scheme: light;
+}
+#ipcam-prototype[data-theme='dark'] {
+  --ip-paper: #171a22;
+  --ip-surface: #202530;
+  --ip-surface-soft: #202530;
+  --ip-surface-raised: #2a303d;
+  --ip-ink: #eef0f7;
+  --ip-muted: #afb7c8;
+  --ip-heading-muted: #969fb1;
+  --ip-line: #363e50;
+  --ip-line-strong: #657087;
+  --ip-field-line: #758198;
+  --ip-grid-line: #65708740;
+  --ip-ai-surface: #302b3d;
+  --ip-ai-ink: #dfb2f4;
+  --ip-ai-line: #685377;
+  --ip-ai-grid: #dfb2f430;
+  --ip-mint-surface: #203b38;
+  --ip-marker: #3a3826;
+  --ip-on-marker: #f5e960;
+  --ip-error: #ffabb8;
+  --ip-shadow: 0 10px 28px rgb(0 0 0 / 28%);
+  color-scheme: dark;
+}

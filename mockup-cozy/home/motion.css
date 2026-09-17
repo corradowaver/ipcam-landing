@@ -1,0 +1,103 @@
+/* Reveal uses entry keyframes: content is readable even before JS initializes. */
+#ipcam-prototype[data-motion='on'] [data-home-reveal][data-revealed='true'] {
+  animation: home-enter 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+#ipcam-prototype[data-motion='on']
+  .home-hero-figure[data-revealed='true']
+  .home-detection {
+  animation: home-detect 550ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--detection-delay);
+}
+#ipcam-prototype[data-motion='on'] [data-flow-played='true'] .home-flow-visual {
+  animation: home-flow-focus 650ms ease both;
+  animation-delay: var(--flow-delay);
+}
+#ipcam-prototype .home-flow-step:nth-child(1) {
+  --flow-delay: 200ms;
+}
+#ipcam-prototype .home-flow-step:nth-child(2) {
+  --flow-delay: 800ms;
+}
+#ipcam-prototype .home-flow-step:nth-child(3) {
+  --flow-delay: 1400ms;
+}
+#ipcam-prototype[data-motion='on']
+  [data-flow-played='true']
+  .home-flow-connector {
+  animation: home-transmit 500ms ease both;
+  animation-delay: calc(var(--flow-delay) + 400ms);
+}
+#ipcam-prototype[data-motion='on'] .home-case details[open] .home-case-detail {
+  animation: home-detail 220ms ease both;
+}
+#ipcam-prototype[data-motion='off']
+  :is(
+    .home-analysis-toggle,
+    .home-switch,
+    .home-switch::after,
+    .home-text-link span,
+    .home-case summary::after
+  ) {
+  transition: none;
+}
+@keyframes home-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes home-detect {
+  from {
+    opacity: 0;
+    transform: scale(1.035);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes home-flow-focus {
+  0% {
+    opacity: 0.5;
+    transform: translateY(6px);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes home-transmit {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes home-detail {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #ipcam-prototype[data-active-page] *,
+  #ipcam-prototype[data-active-page] *::before,
+  #ipcam-prototype[data-active-page] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

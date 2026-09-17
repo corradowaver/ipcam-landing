@@ -1,0 +1,119 @@
+.about-observation figure {
+  margin: 0;
+  min-width: 0;
+}
+.about-observation figcaption {
+  margin-top: 18px;
+}
+.about-statement h2 {
+  font-size: clamp(32px, 3.7vw, 50px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.05em;
+  margin-top: 24px;
+}
+.about-observation {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 72px;
+  align-items: center;
+  padding-block: 12px 76px;
+}
+.about-statement {
+  position: relative;
+  padding-right: 30px;
+}
+.about-statement h2 {
+  font-size: clamp(38px, 4.3vw, 60px);
+}
+.about-statement p {
+  margin-top: 28px;
+  font-size: 15px;
+  color: var(--color-text-muted);
+  max-width: 310px;
+}
+.about-cross {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 300;
+}
+.about-principles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 44px;
+}
+.about-principles article {
+  border-top: 1px solid var(--color-line);
+  padding-top: 24px;
+}
+.about-principle-index {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-bottom: 32px;
+}
+.about-principle-index svg {
+  width: 26px;
+  height: 26px;
+}
+.about-principles h3 {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+.about-principles p {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  margin-top: 16px;
+}
+.about-journey {
+  background: var(--color-surface-soft);
+  padding: 44px;
+  border: 0;
+  border-radius: var(--radius-card);
+  margin-block: 16px 64px;
+}
+@media (max-width: 1100px) {
+  .about-observation {
+    gap: 40px;
+  }
+  .about-principles {
+    gap: 26px;
+  }
+}
+@media (max-width: 800px) {
+  .about-observation {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 48px;
+  }
+  .about-principles {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .about-principle-index {
+    margin-bottom: 18px;
+  }
+  .about-principles p {
+    max-width: 450px;
+  }
+  .about-journey {
+    padding: 32px;
+    margin-bottom: 48px;
+  }
+}
+@media (max-width: 600px) {
+  .about-statement h2 {
+    font-size: 38px;
+  }
+  .about-journey {
+    padding: 24px;
+  }
+  .about-journey .sub-sequence {
+    grid-template-columns: 1fr;
+  }
+}
