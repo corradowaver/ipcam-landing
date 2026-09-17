@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/class-names'
 import { ActionButton } from '@/shared/ui/action-button'
 import { ThemeSwitch } from '@/features/color-theme'
 import { useReveal, motionStyles } from '@/shared/lib/reveal'
-import { routes } from './routes'
+import { routePaths, routes } from './routes'
 import styles from './site-shell.module.css'
 
 type SiteShellProps = {
@@ -103,7 +103,11 @@ export function SiteShell({
   return (
     <div className={styles.site} onClick={handleLinkClick}>
       <header className={classNames(styles.container, styles.header)}>
-        <a aria-label="Вместе — главная" className={styles.logo} href="/">
+        <a
+          aria-label="Вместе — главная"
+          className={styles.logo}
+          href={routePaths.home}
+        >
           <span aria-hidden="true" className={styles.logoMark} />
           Вместе
         </a>

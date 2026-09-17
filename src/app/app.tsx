@@ -40,7 +40,7 @@ function RouteContent({ onDemoRequest, routeId }: RouteContentProps) {
     case 'about':
       return <AboutPage links={{ services: links.services }} />
     default:
-      return <NotFoundPage />
+      return <NotFoundPage homeHref={links.home} />
   }
 }
 

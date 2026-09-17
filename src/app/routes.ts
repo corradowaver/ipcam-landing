@@ -1,10 +1,10 @@
-export const routePaths = {
-  home: '/',
-  services: '/services',
-  cases: '/cases',
-  prices: '/prices',
-  about: '/about',
-} as const
+import { pagePaths } from './route-paths'
+
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '')
+
+export const routePaths = Object.fromEntries(
+  Object.entries(pagePaths).map(([id, path]) => [id, `${basePath}${path}`]),
+) as Record<keyof typeof pagePaths, string>
 
 export type RouteId = 'about' | 'cases' | 'home' | 'prices' | 'services'
 
@@ -63,5 +63,7 @@ export function findRoute(pathname: string) {
   const normalizedPath =
     pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname
 
-  return routes.find((route) => route.path === normalizedPath)
+  return routes.find(
+    (route) => (route.path.replace(/\/+$/, '') || '/') === normalizedPath,
+  )
 }
