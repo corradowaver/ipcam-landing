@@ -4,19 +4,47 @@
   gap: 22px;
   padding-block: 56px 72px;
   align-items: stretch;
+  padding-inline: 12px;
+  margin-inline: -12px;
 }
 #ipcam-prototype .price-offer {
   padding: 32px;
-  border: 1px solid var(--ip-line);
+  border: 1px solid var(--offer-emphasis, var(--ip-line));
   border-radius: var(--ip-radius);
   background: var(--ip-surface);
   display: flex;
   flex-direction: column;
   position: relative;
+  z-index: var(--offer-layer, 0);
+  box-shadow: var(--offer-shadow, none);
+  transition:
+    scale 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
 }
 #ipcam-prototype .price-offer[data-featured='true'] {
   background: var(--ip-ai-surface);
-  border-color: var(--ip-ai-line);
+  border-color: var(--offer-emphasis, var(--ip-ai-line));
+}
+#ipcam-prototype .price-offer:has(:focus-visible) {
+  --offer-emphasis: var(--ip-ink);
+  --offer-shadow: var(--ip-shadow);
+  --offer-scale: 1.035;
+  --offer-layer: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+  #ipcam-prototype .price-offer:hover {
+    --offer-emphasis: var(--ip-ink);
+    --offer-shadow: var(--ip-shadow);
+    --offer-scale: 1.035;
+    --offer-layer: 1;
+  }
+}
+/* Individual scale keeps hover independent of the entrance animation. */
+@media (prefers-reduced-motion: no-preference) {
+  #ipcam-prototype[data-motion='on'] .price-offer {
+    scale: var(--offer-scale, 1);
+  }
 }
 #ipcam-prototype .price-offer-index {
   display: flex;
@@ -72,6 +100,8 @@
   justify-content: space-between;
 }
 #ipcam-prototype .price-factors {
+  --section-space: 0 clamp(48px, 6vw, 80px);
+  border-top: 0;
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
   gap: 80px;
@@ -98,21 +128,6 @@
 }
 #ipcam-prototype .price-grid-art span:nth-child(-n + 2) {
   border-bottom: 1px solid var(--ip-line);
-}
-#ipcam-prototype .price-grid-art i {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: var(--ip-lavender);
-  color: var(--ip-on-accent);
-  font-style: normal;
-  font-size: 20px;
 }
 #ipcam-prototype .price-factor-list details {
   border-bottom: 1px solid var(--ip-line);
@@ -163,57 +178,51 @@
 }
 @media (max-width: 800px) {
   #ipcam-prototype .price-offers {
-    grid-template-columns: 1fr;
-    gap: 20px;
     padding-block: 36px 50px;
   }
   #ipcam-prototype .price-offer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 32px;
-    padding: 28px;
-  }
-  #ipcam-prototype .price-offer-index {
-    grid-column: 1 / -1;
-    margin-bottom: 18px;
-  }
-  #ipcam-prototype .price-offer-main {
-    grid-column: 1;
-  }
-  #ipcam-prototype .price-offer ul {
-    grid-column: 2;
-    grid-row: 2 / 4;
-    border: 0;
-    margin: 0;
-    padding-top: 0;
-  }
-  #ipcam-prototype .price-offer .ip-button {
-    grid-column: 1 / -1;
-    margin-top: 24px;
-  }
-  #ipcam-prototype .price-factors {
-    grid-template-columns: 1fr;
-  }
-}
-@media (max-width: 600px) {
-  #ipcam-prototype .price-offer {
-    display: flex;
-    padding: 28px;
+    padding: 18px;
   }
   #ipcam-prototype .price-offer-index {
     margin-bottom: 28px;
   }
   #ipcam-prototype .price-offer h2 {
+    font-size: 20px;
+  }
+  #ipcam-prototype .price-offer-value {
+    font-size: 28px;
+  }
+  #ipcam-prototype .price-offer ul {
+    padding-block: 20px;
+    margin-top: 20px;
+  }
+  #ipcam-prototype .price-factors {
+    grid-template-columns: 1fr;
+  }
+  #ipcam-prototype .price-offer .ip-button {
+    padding-inline: 10px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 700px) {
+  #ipcam-prototype .price-offers {
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 12px;
+  }
+  #ipcam-prototype .price-offer {
+    padding: 24px;
+    scroll-snap-align: start;
+  }
+  #ipcam-prototype .price-offer h2 {
     font-size: 25px;
   }
   #ipcam-prototype .price-offer-value {
-    font-size: 38px;
+    font-size: 34px;
   }
-  #ipcam-prototype .price-offer ul {
-    border-top: 1px solid var(--ip-line);
-    padding-block: 20px 0;
-    margin-top: 20px;
-  }
+}
+@media (max-width: 600px) {
   #ipcam-prototype .price-factor-list summary {
     font-size: 22px;
     gap: 16px;

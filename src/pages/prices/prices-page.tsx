@@ -65,14 +65,12 @@ export function PricesPage({ onDemoRequest }: { onDemoRequest: () => void }) {
           data-reveal=""
         >
           <div className={editorialStyles['home-kicker']}>
-            01 / Из чего складывается проект
+            Из чего складывается проект
           </div>
           <h2 id="price-factors-title">
             Четыре фактора.
             <br />
-            <span className={editorialStyles['home-muted-title']}>
-              Одна задача.
-            </span>
+            Одна задача.
           </h2>
           <p>Обсуждаем объём до выбора формата.</p>
           <div className={styles['price-grid-art']} aria-hidden="true">
@@ -80,7 +78,6 @@ export function PricesPage({ onDemoRequest }: { onDemoRequest: () => void }) {
             <span>Сценарии</span>
             <span>Инфраструктура</span>
             <span>Интеграции</span>
-            <i>+</i>{' '}
           </div>
         </div>
         <div

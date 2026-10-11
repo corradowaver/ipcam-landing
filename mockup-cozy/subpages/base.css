@@ -74,7 +74,7 @@
   top: calc(50% - 8px);
 }
 #ipcam-prototype .sub-section {
-  padding-block: 72px;
+  padding-block: var(--section-space, clamp(40px, 5vw, 72px));
   border-top: 1px solid var(--ip-line);
   scroll-margin-top: 30px;
 }
@@ -102,6 +102,14 @@
 #ipcam-prototype .sub-section-head > p {
   font-size: 15px;
   color: var(--ip-muted);
+}
+#ipcam-prototype .sub-section-compact {
+  --section-space: clamp(32px, 3vw, 44px) clamp(48px, 5vw, 72px);
+}
+#ipcam-prototype .sub-section-compact h2 {
+  font-size: clamp(28px, 2.8vw, 38px);
+  max-width: 680px;
+  margin-top: 14px;
 }
 #ipcam-prototype .sub-disclaimer {
   display: flex;
@@ -204,9 +212,6 @@
   #ipcam-prototype .sub-hero-split {
     grid-template-columns: 1fr;
     gap: 38px;
-  }
-  #ipcam-prototype .sub-section {
-    padding-block: 50px;
   }
   #ipcam-prototype .sub-sequence {
     grid-template-columns: repeat(2, minmax(0, 1fr));

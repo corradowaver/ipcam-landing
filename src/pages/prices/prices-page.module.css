@@ -4,19 +4,47 @@
   gap: 22px;
   padding-block: 56px 72px;
   align-items: stretch;
+  padding-inline: 12px;
+  margin-inline: -12px;
 }
 .price-offer {
   padding: 32px;
-  border: 1px solid var(--color-line);
+  border: 1px solid var(--offer-emphasis, var(--color-line));
   border-radius: var(--radius-card);
   background: var(--color-surface);
   display: flex;
   flex-direction: column;
   position: relative;
+  z-index: var(--offer-layer, 0);
+  box-shadow: var(--offer-shadow, none);
+  transition:
+    scale 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
 }
 .price-offer[data-featured='true'] {
   background: var(--color-ai-surface);
-  border-color: var(--color-ai-line);
+  border-color: var(--offer-emphasis, var(--color-ai-line));
+}
+.price-offer:has(:focus-visible) {
+  --offer-emphasis: var(--color-text);
+  --offer-shadow: var(--color-shadow);
+  --offer-scale: 1.035;
+  --offer-layer: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+  .price-offer:hover {
+    --offer-emphasis: var(--color-text);
+    --offer-shadow: var(--color-shadow);
+    --offer-scale: 1.035;
+    --offer-layer: 1;
+  }
+}
+/* Individual scale keeps hover independent of the entrance animation. */
+@media (prefers-reduced-motion: no-preference) {
+  .price-offer {
+    scale: var(--offer-scale, 1);
+  }
 }
 .price-offer-index {
   display: flex;
@@ -72,6 +100,8 @@
   justify-content: space-between;
 }
 .price-factors {
+  --section-space: 0 clamp(48px, 6vw, 80px);
+  border-top: 0;
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
   gap: 80px;
@@ -98,21 +128,6 @@
 }
 .price-grid-art span:nth-child(-n + 2) {
   border-bottom: 1px solid var(--color-line);
-}
-.price-grid-art i {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: var(--color-lavender);
-  color: var(--color-on-accent);
-  font-style: normal;
-  font-size: 20px;
 }
 .price-factor-list details {
   border-bottom: 1px solid var(--color-line);
@@ -163,57 +178,51 @@
 }
 @media (max-width: 800px) {
   .price-offers {
-    grid-template-columns: 1fr;
-    gap: 20px;
     padding-block: 36px 50px;
   }
   .price-offer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 32px;
-    padding: 28px;
-  }
-  .price-offer-index {
-    grid-column: 1 / -1;
-    margin-bottom: 18px;
-  }
-  .price-offer-main {
-    grid-column: 1;
-  }
-  .price-offer ul {
-    grid-column: 2;
-    grid-row: 2 / 4;
-    border: 0;
-    margin: 0;
-    padding-top: 0;
-  }
-  .price-offer :is(button, a) {
-    grid-column: 1 / -1;
-    margin-top: 24px;
-  }
-  .price-factors {
-    grid-template-columns: 1fr;
-  }
-}
-@media (max-width: 600px) {
-  .price-offer {
-    display: flex;
-    padding: 28px;
+    padding: 18px;
   }
   .price-offer-index {
     margin-bottom: 28px;
   }
   .price-offer h2 {
+    font-size: 20px;
+  }
+  .price-offer-value {
+    font-size: 28px;
+  }
+  .price-offer ul {
+    padding-block: 20px;
+    margin-top: 20px;
+  }
+  .price-factors {
+    grid-template-columns: 1fr;
+  }
+  .price-offer :is(button, a) {
+    padding-inline: 10px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 700px) {
+  .price-offers {
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 12px;
+  }
+  .price-offer {
+    padding: 24px;
+    scroll-snap-align: start;
+  }
+  .price-offer h2 {
     font-size: 25px;
   }
   .price-offer-value {
-    font-size: 38px;
+    font-size: 34px;
   }
-  .price-offer ul {
-    border-top: 1px solid var(--color-line);
-    padding-block: 20px 0;
-    margin-top: 20px;
-  }
+}
+@media (max-width: 600px) {
   .price-factor-list summary {
     font-size: 22px;
     gap: 16px;

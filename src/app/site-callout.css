@@ -19,14 +19,6 @@
   font-size: 11px;
   letter-spacing: 0.07em;
 }
-.callout::after {
-  content: '+';
-  position: absolute;
-  top: 21px;
-  right: 32px;
-  font-weight: 300;
-  font-size: 30px;
-}
 .callout h2 {
   max-width: none;
   font-size: clamp(36px, 4.8vw, 66px);

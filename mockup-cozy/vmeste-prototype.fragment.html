@@ -1322,7 +1322,7 @@
     color: var(--ip-ink);
   }
   #ipcam-prototype .home-section {
-    padding-block: 76px;
+    padding-block: var(--section-space, clamp(40px, 5vw, 76px));
     border-top: 1px solid var(--ip-line);
     scroll-margin-top: 24px;
   }
@@ -1356,6 +1356,7 @@
     margin-top: 20px;
   }
   #ipcam-prototype .home-capabilities {
+    --section-space: clamp(36px, 4vw, 56px) clamp(48px, 5vw, 72px);
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     gap: 80px;
@@ -1422,6 +1423,23 @@
     color: var(--ip-muted);
     padding-bottom: 4px;
   }
+  #ipcam-prototype .home-process {
+    --section-space: clamp(32px, 4vw, 56px) clamp(56px, 6vw, 88px);
+  }
+  #ipcam-prototype .home-scenarios {
+    --section-space: clamp(32px, 3vw, 44px) clamp(48px, 5vw, 72px);
+  }
+  #ipcam-prototype .home-scenarios .home-section-head > div {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    align-items: baseline;
+    gap: 24px;
+  }
+  #ipcam-prototype .home-scenarios h2 {
+    margin: 0;
+    max-width: 460px;
+    font-size: clamp(30px, 3vw, 40px);
+  }
   #ipcam-prototype[data-active-page] .ip-callout {
     position: relative;
     overflow: hidden;
@@ -1439,14 +1457,6 @@
     left: 56px;
     font-size: 11px;
     letter-spacing: 0.07em;
-  }
-  #ipcam-prototype[data-active-page] .ip-callout::after {
-    content: '+';
-    position: absolute;
-    top: 21px;
-    right: 32px;
-    font-weight: 300;
-    font-size: 30px;
   }
   #ipcam-prototype[data-active-page] .ip-callout h2 {
     max-width: none;
@@ -1991,20 +2001,60 @@
   @media (max-width: 600px) {
     #ipcam-prototype .home-flow {
       grid-template-columns: 1fr;
-      gap: 50px;
-      padding: 28px 24px;
+      gap: 36px;
+      padding: 24px 20px;
+    }
+    #ipcam-prototype .home-flow-step {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      column-gap: 18px;
+      align-items: start;
     }
     #ipcam-prototype .home-flow-visual {
-      height: 180px;
-      margin-bottom: 18px;
+      grid-column: 1;
+      grid-row: 1 / 3;
+      height: 72px;
+      margin: 0;
     }
     #ipcam-prototype .home-flow-camera svg {
-      max-width: 220px;
+      max-width: 64px;
+    }
+    #ipcam-prototype .home-flow-camera .home-flow-visual {
+      background-size: 16px 16px;
+    }
+    #ipcam-prototype .home-ai-chip {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+    }
+    #ipcam-prototype .home-ai-chip strong {
+      font-size: 28px;
+    }
+    #ipcam-prototype .home-ai-grid {
+      inset: 7px;
+      border-radius: 10px;
+    }
+    #ipcam-prototype .home-ai-point {
+      top: 12px;
+      right: 12px;
+      width: 4px;
+      height: 4px;
+    }
+    #ipcam-prototype .home-flow-label {
+      grid-column: 2;
+      grid-row: 1;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+    }
+    #ipcam-prototype .home-flow-step > p {
+      grid-column: 2;
+      grid-row: 2;
+      margin-top: 8px;
     }
     #ipcam-prototype .home-flow-connector {
       top: auto;
-      bottom: -32px;
-      left: 50%;
+      bottom: -30px;
+      left: 32px;
       right: auto;
       width: 27px;
       transform: translateX(-50%) rotate(90deg);
@@ -2016,8 +2066,18 @@
     #ipcam-prototype .home-flow-label h3 {
       font-size: 18px;
     }
+    #ipcam-prototype .home-flow-result .home-flow-label,
+    #ipcam-prototype .home-flow-result > p {
+      grid-column: 1 / -1;
+    }
+    #ipcam-prototype .home-flow-result > p {
+      max-width: none;
+    }
     #ipcam-prototype .home-flow-result .home-flow-visual {
+      grid-column: 1 / -1;
+      grid-row: 3;
       height: auto;
+      margin-top: 18px;
     }
     #ipcam-prototype .home-result-window {
       max-width: none;
@@ -2066,9 +2126,6 @@
     #ipcam-prototype .home-capability-list li:first-child {
       border-top: 1px solid var(--ip-line);
       padding-top: 28px;
-    }
-    #ipcam-prototype .home-section {
-      padding-block: 52px;
     }
     #ipcam-prototype .home-section-head {
       gap: 24px;
@@ -2136,6 +2193,13 @@
     }
     #ipcam-prototype .home-section-head > p {
       max-width: none;
+    }
+    #ipcam-prototype .home-scenarios .home-section-head > div {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    #ipcam-prototype .home-scenarios h2 {
+      font-size: 30px;
     }
     #ipcam-prototype .home-capability-list li {
       grid-template-columns: 22px 1fr 34px;
@@ -2355,7 +2419,7 @@
     top: calc(50% - 8px);
   }
   #ipcam-prototype .sub-section {
-    padding-block: 72px;
+    padding-block: var(--section-space, clamp(40px, 5vw, 72px));
     border-top: 1px solid var(--ip-line);
     scroll-margin-top: 30px;
   }
@@ -2383,6 +2447,14 @@
   #ipcam-prototype .sub-section-head > p {
     font-size: 15px;
     color: var(--ip-muted);
+  }
+  #ipcam-prototype .sub-section-compact {
+    --section-space: clamp(32px, 3vw, 44px) clamp(48px, 5vw, 72px);
+  }
+  #ipcam-prototype .sub-section-compact h2 {
+    font-size: clamp(28px, 2.8vw, 38px);
+    max-width: 680px;
+    margin-top: 14px;
   }
   #ipcam-prototype .sub-disclaimer {
     display: flex;
@@ -2486,9 +2558,6 @@
       grid-template-columns: 1fr;
       gap: 38px;
     }
-    #ipcam-prototype .sub-section {
-      padding-block: 50px;
-    }
     #ipcam-prototype .sub-sequence {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 36px 24px;
@@ -2533,6 +2602,7 @@
   }
 
   #ipcam-prototype .service-method {
+    --section-space: clamp(36px, 4vw, 56px) clamp(56px, 6vw, 88px);
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     gap: 80px;
@@ -2618,6 +2688,7 @@
     content: '↳';
   }
   #ipcam-prototype .service-demonstration {
+    --section-space: clamp(40px, 4vw, 56px) clamp(56px, 7vw, 96px);
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     align-items: center;
@@ -2841,19 +2912,47 @@
     gap: 22px;
     padding-block: 56px 72px;
     align-items: stretch;
+    padding-inline: 12px;
+    margin-inline: -12px;
   }
   #ipcam-prototype .price-offer {
     padding: 32px;
-    border: 1px solid var(--ip-line);
+    border: 1px solid var(--offer-emphasis, var(--ip-line));
     border-radius: var(--ip-radius);
     background: var(--ip-surface);
     display: flex;
     flex-direction: column;
     position: relative;
+    z-index: var(--offer-layer, 0);
+    box-shadow: var(--offer-shadow, none);
+    transition:
+      scale 240ms ease,
+      border-color 240ms ease,
+      box-shadow 240ms ease;
   }
   #ipcam-prototype .price-offer[data-featured='true'] {
     background: var(--ip-ai-surface);
-    border-color: var(--ip-ai-line);
+    border-color: var(--offer-emphasis, var(--ip-ai-line));
+  }
+  #ipcam-prototype .price-offer:has(:focus-visible) {
+    --offer-emphasis: var(--ip-ink);
+    --offer-shadow: var(--ip-shadow);
+    --offer-scale: 1.035;
+    --offer-layer: 1;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    #ipcam-prototype .price-offer:hover {
+      --offer-emphasis: var(--ip-ink);
+      --offer-shadow: var(--ip-shadow);
+      --offer-scale: 1.035;
+      --offer-layer: 1;
+    }
+  }
+  /* Individual scale keeps hover independent of the entrance animation. */
+  @media (prefers-reduced-motion: no-preference) {
+    #ipcam-prototype[data-motion='on'] .price-offer {
+      scale: var(--offer-scale, 1);
+    }
   }
   #ipcam-prototype .price-offer-index {
     display: flex;
@@ -2909,6 +3008,8 @@
     justify-content: space-between;
   }
   #ipcam-prototype .price-factors {
+    --section-space: 0 clamp(48px, 6vw, 80px);
+    border-top: 0;
     display: grid;
     grid-template-columns: 0.95fr 1.05fr;
     gap: 80px;
@@ -2935,21 +3036,6 @@
   }
   #ipcam-prototype .price-grid-art span:nth-child(-n + 2) {
     border-bottom: 1px solid var(--ip-line);
-  }
-  #ipcam-prototype .price-grid-art i {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: grid;
-    place-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: var(--ip-lavender);
-    color: var(--ip-on-accent);
-    font-style: normal;
-    font-size: 20px;
   }
   #ipcam-prototype .price-factor-list details {
     border-bottom: 1px solid var(--ip-line);
@@ -3000,57 +3086,51 @@
   }
   @media (max-width: 800px) {
     #ipcam-prototype .price-offers {
-      grid-template-columns: 1fr;
-      gap: 20px;
       padding-block: 36px 50px;
     }
     #ipcam-prototype .price-offer {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 32px;
-      padding: 28px;
-    }
-    #ipcam-prototype .price-offer-index {
-      grid-column: 1 / -1;
-      margin-bottom: 18px;
-    }
-    #ipcam-prototype .price-offer-main {
-      grid-column: 1;
-    }
-    #ipcam-prototype .price-offer ul {
-      grid-column: 2;
-      grid-row: 2 / 4;
-      border: 0;
-      margin: 0;
-      padding-top: 0;
-    }
-    #ipcam-prototype .price-offer .ip-button {
-      grid-column: 1 / -1;
-      margin-top: 24px;
-    }
-    #ipcam-prototype .price-factors {
-      grid-template-columns: 1fr;
-    }
-  }
-  @media (max-width: 600px) {
-    #ipcam-prototype .price-offer {
-      display: flex;
-      padding: 28px;
+      padding: 18px;
     }
     #ipcam-prototype .price-offer-index {
       margin-bottom: 28px;
     }
     #ipcam-prototype .price-offer h2 {
+      font-size: 20px;
+    }
+    #ipcam-prototype .price-offer-value {
+      font-size: 28px;
+    }
+    #ipcam-prototype .price-offer ul {
+      padding-block: 20px;
+      margin-top: 20px;
+    }
+    #ipcam-prototype .price-factors {
+      grid-template-columns: 1fr;
+    }
+    #ipcam-prototype .price-offer .ip-button {
+      padding-inline: 10px;
+      font-size: 13px;
+    }
+  }
+  @media (max-width: 700px) {
+    #ipcam-prototype .price-offers {
+      grid-template-columns: repeat(3, minmax(280px, 1fr));
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      scroll-padding-inline: 12px;
+    }
+    #ipcam-prototype .price-offer {
+      padding: 24px;
+      scroll-snap-align: start;
+    }
+    #ipcam-prototype .price-offer h2 {
       font-size: 25px;
     }
     #ipcam-prototype .price-offer-value {
-      font-size: 38px;
+      font-size: 34px;
     }
-    #ipcam-prototype .price-offer ul {
-      border-top: 1px solid var(--ip-line);
-      padding-block: 20px 0;
-      margin-top: 20px;
-    }
+  }
+  @media (max-width: 600px) {
     #ipcam-prototype .price-factor-list summary {
       font-size: 22px;
       gap: 16px;
@@ -3064,10 +3144,6 @@
     align-items: center;
     padding-block: 12px 76px;
   }
-  #ipcam-prototype .about-statement {
-    position: relative;
-    padding-right: 30px;
-  }
   #ipcam-prototype .about-statement h2 {
     font-size: clamp(38px, 4.3vw, 60px);
   }
@@ -3076,14 +3152,6 @@
     font-size: 15px;
     color: var(--ip-muted);
     max-width: 310px;
-  }
-  #ipcam-prototype .about-cross {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 28px;
-    line-height: 1;
-    font-weight: 300;
   }
   #ipcam-prototype .about-principles {
     display: grid;
@@ -3116,11 +3184,11 @@
     margin-top: 16px;
   }
   #ipcam-prototype .about-journey {
-    background: var(--ip-surface-soft);
-    padding: 44px;
-    border: 0;
-    border-radius: var(--ip-radius);
-    margin-block: 16px 64px;
+    --section-space: clamp(32px, 4vw, 48px) clamp(48px, 6vw, 80px);
+  }
+  #ipcam-prototype .about-journey h2 {
+    font-size: clamp(28px, 2.8vw, 38px);
+    margin-top: 14px;
   }
   @media (max-width: 1100px) {
     #ipcam-prototype .about-observation {
@@ -3146,20 +3214,28 @@
     #ipcam-prototype .about-principles p {
       max-width: 450px;
     }
-    #ipcam-prototype .about-journey {
-      padding: 32px;
-      margin-bottom: 48px;
-    }
   }
   @media (max-width: 600px) {
     #ipcam-prototype .about-statement h2 {
       font-size: 38px;
     }
-    #ipcam-prototype .about-journey {
-      padding: 24px;
-    }
     #ipcam-prototype .about-journey .sub-sequence {
       grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    #ipcam-prototype .about-journey .sub-sequence li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      column-gap: 18px;
+      padding-top: 20px;
+    }
+    #ipcam-prototype .about-journey .sub-sequence li > span {
+      grid-row: 1 / 3;
+      margin: 0;
+    }
+    #ipcam-prototype .about-journey .sub-sequence p {
+      grid-column: 2;
+      margin-top: 8px;
     }
   }
 
@@ -3436,10 +3512,8 @@
     >
       <div class="home-section-head">
         <div>
-          <div class="home-kicker">
-            <span class="home-section-number">02</span>Как это работает
-          </div>
-          <h2 id="home-process-title">От камеры —<br />к пониманию.</h2>
+          <div class="home-kicker">Как это работает</div>
+          <h2 id="home-process-title">От камеры — к пониманию.</h2>
         </div>
         <p>
           Видео становится нагляднее.<br />Результат остаётся в контексте кадра.
@@ -3553,14 +3627,8 @@
     >
       <div class="home-section-head" data-home-reveal>
         <div>
-          <div class="home-kicker">
-            <span class="home-section-number">03</span>Сценарии
-          </div>
-          <h2 id="home-scenarios-title">
-            Разные площадки.<br /><span class="home-muted-title"
-              >Ваш контекст.</span
-            >
-          </h2>
+          <div class="home-kicker">Сценарии</div>
+          <h2 id="home-scenarios-title">Разные площадки. Ваш контекст.</h2>
         </div>
         <button class="home-text-link" type="button" data-page="cases">
           Примеры применения <span aria-hidden="true">↗</span>
@@ -3616,9 +3684,7 @@
     >
       <div class="sub-section-heading" data-reveal>
         <div class="home-kicker">01 / Последовательность</div>
-        <h2 id="service-method-title">
-          Четыре шага.<br /><span class="home-muted-title">Одна задача.</span>
-        </h2>
+        <h2 id="service-method-title">Четыре шага.<br />Одна задача.</h2>
         <p>У каждого этапа — свой проверяемый результат.</p>
         <div class="service-index-mark" aria-hidden="true">
           04<span>от вопроса<br />к решению</span>
@@ -3665,12 +3731,8 @@
         </figcaption>
       </figure>
       <div>
-        <div class="home-kicker">02 / Проверяем на примере</div>
-        <h2 id="helmet-demo-title">
-          Контроль касок.<br /><span class="home-muted-title"
-            >Сначала — проверка.</span
-          >
-        </h2>
+        <div class="home-kicker">Проверяем на примере</div>
+        <h2 id="helmet-demo-title">Контроль касок.<br />Сначала — проверка.</h2>
         <p>
           Статус каски имитируется для демонстрации интерфейса. Это не готовое
           распознавание нарушений.
@@ -3725,13 +3787,14 @@
       aria-label="Демонстрационные кейсы"
       data-case-studies
     ></section>
-    <section class="sub-section" aria-labelledby="case-context-title">
+    <section
+      class="sub-section sub-section-compact"
+      aria-labelledby="case-context-title"
+    >
       <div class="sub-section-head" data-reveal>
         <div>
-          <div class="home-kicker">04 / Ваша площадка</div>
-          <h2 id="case-context-title">
-            Контекст меняет<br /><span class="home-muted-title">картину.</span>
-          </h2>
+          <div class="home-kicker">Ваша площадка</div>
+          <h2 id="case-context-title">Контекст меняет картину.</h2>
         </div>
         <p>Один сценарий проверяется<br />в разных условиях.</p>
       </div>
@@ -3796,16 +3859,12 @@
       aria-labelledby="price-factors-title"
     >
       <div class="sub-section-heading" data-reveal>
-        <div class="home-kicker">01 / Из чего складывается проект</div>
-        <h2 id="price-factors-title">
-          Четыре фактора.<br /><span class="home-muted-title"
-            >Одна задача.</span
-          >
-        </h2>
+        <div class="home-kicker">Из чего складывается проект</div>
+        <h2 id="price-factors-title">Четыре фактора.<br />Одна задача.</h2>
         <p>Обсуждаем объём до выбора формата.</p>
         <div class="price-grid-art" aria-hidden="true">
           <span>Камеры</span><span>Сценарии</span><span>Инфраструктура</span
-          ><span>Интеграции</span><i>+</i>
+          ><span>Интеграции</span>
         </div>
       </div>
       <div class="price-factor-list" data-reveal>
@@ -3882,17 +3941,17 @@
           Смысл видеоаналитики появляется там, где есть конкретный вопрос к
           происходящему.
         </p>
-        <span class="about-cross" aria-hidden="true">+</span>
       </div>
     </section>
-    <section class="sub-section" aria-labelledby="about-principles-title">
+    <section
+      class="sub-section sub-section-compact"
+      aria-labelledby="about-principles-title"
+    >
       <div class="sub-section-head" data-reveal>
         <div>
-          <div class="home-kicker">02 / Инженерный подход</div>
+          <div class="home-kicker">Инженерный подход</div>
           <h2 id="about-principles-title">
-            Понятная последовательность.<br /><span class="home-muted-title"
-              >Проверяемые решения.</span
-            >
+            Понятная последовательность. Проверяемые решения.
           </h2>
         </div>
       </div>
@@ -3928,12 +3987,8 @@
     >
       <div class="sub-section-head" data-reveal>
         <div>
-          <div class="home-kicker">03 / Этапы сотрудничества</div>
-          <h2 id="about-journey-title">
-            Двигаемся<br /><span class="home-muted-title"
-              >последовательно.</span
-            >
-          </h2>
+          <div class="home-kicker">Этапы сотрудничества</div>
+          <h2 id="about-journey-title">Двигаемся последовательно.</h2>
         </div>
         <button class="home-text-link" type="button" data-page="services">
           Как устроена работа <span aria-hidden="true">↗</span>
@@ -4293,9 +4348,9 @@
     }
 
     function renderPriceOffer(item, index) {
-      return `<article class="price-offer" data-featured="${item.featured}" data-reveal>
+      return `<article class="price-offer" data-featured="${item.featured}" aria-labelledby="price-title-${index}" data-reveal>
     <div class="price-offer-index"><span>0${index + 1} / Формат проекта</span><span aria-hidden="true"></span></div>
-    <div class="price-offer-main"><h2>${item.title}</h2><div class="price-offer-value">${item.price}</div><div class="price-offer-caption">${item.caption}</div></div>
+    <div class="price-offer-main"><h2 id="price-title-${index}">${item.title}</h2><div class="price-offer-value">${item.price}</div><div class="price-offer-caption">${item.caption}</div></div>
     <ul>${item.items.map((text) => `<li>${text}</li>`).join('')}</ul>
     <button class="ip-button ${item.featured ? '' : 'ip-button-secondary'}" type="button" data-demo>Запросить демо <span aria-hidden="true">↗</span></button>
   </article>`

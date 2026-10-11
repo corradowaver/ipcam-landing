@@ -23,9 +23,9 @@ function renderCaseStudy(item, index, photo) {
 }
 
 function renderPriceOffer(item, index) {
-  return `<article class="price-offer" data-featured="${item.featured}" data-reveal>
+  return `<article class="price-offer" data-featured="${item.featured}" aria-labelledby="price-title-${index}" data-reveal>
     <div class="price-offer-index"><span>0${index + 1} / Формат проекта</span><span aria-hidden="true"></span></div>
-    <div class="price-offer-main"><h2>${item.title}</h2><div class="price-offer-value">${item.price}</div><div class="price-offer-caption">${item.caption}</div></div>
+    <div class="price-offer-main"><h2 id="price-title-${index}">${item.title}</h2><div class="price-offer-value">${item.price}</div><div class="price-offer-caption">${item.caption}</div></div>
     <ul>${item.items.map((text) => `<li>${text}</li>`).join('')}</ul>
     <button class="ip-button ${item.featured ? '' : 'ip-button-secondary'}" type="button" data-demo>Запросить демо <span aria-hidden="true">↗</span></button>
   </article>`

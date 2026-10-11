@@ -37,7 +37,7 @@
   color: var(--color-text);
 }
 .home-section {
-  padding-block: 76px;
+  padding-block: var(--section-space, clamp(40px, 5vw, 76px));
   border-top: 1px solid var(--color-line);
   scroll-margin-top: 24px;
 }
@@ -58,6 +58,7 @@
   margin-top: 20px;
 }
 .home-capabilities {
+  --section-space: clamp(36px, 4vw, 56px) clamp(48px, 5vw, 72px);
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 80px;
@@ -124,6 +125,23 @@
   color: var(--color-text-muted);
   padding-bottom: 4px;
 }
+.home-process {
+  --section-space: clamp(32px, 4vw, 56px) clamp(56px, 6vw, 88px);
+}
+.home-scenarios {
+  --section-space: clamp(32px, 3vw, 44px) clamp(48px, 5vw, 72px);
+}
+.home-scenarios .home-section-head > div {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 24px;
+}
+.home-scenarios h2 {
+  margin: 0;
+  max-width: 460px;
+  font-size: clamp(30px, 3vw, 40px);
+}
 @media (max-width: 1100px) {
   .home-hero {
     gap: 28px;
@@ -158,9 +176,6 @@
     border-top: 1px solid var(--color-line);
     padding-top: 28px;
   }
-  .home-section {
-    padding-block: 52px;
-  }
   .home-section-head {
     gap: 24px;
   }
@@ -191,6 +206,13 @@
   }
   .home-section-head > p {
     max-width: none;
+  }
+  .home-scenarios .home-section-head > div {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .home-scenarios h2 {
+    font-size: 30px;
   }
   .home-capability-list li {
     grid-template-columns: 22px 1fr 34px;

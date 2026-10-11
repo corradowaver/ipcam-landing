@@ -1,6 +1,6 @@
 import { CaseNavigation, CaseShowcase } from '@/features/case-showcase'
 import { motionStyles } from '@/shared/lib/reveal'
-import styles from './../../shared/ui/editorial/editorial.module.css'
+import { editorialStyles as styles } from '@/shared/ui/editorial'
 
 export function CasesPage() {
   return (
@@ -49,7 +49,9 @@ export function CasesPage() {
       </aside>
       <CaseNavigation></CaseNavigation> <CaseShowcase detailed />{' '}
       <section
-        className={styles['sub-section']}
+        className={[styles['sub-section'], styles['sub-section-compact']].join(
+          ' ',
+        )}
         aria-labelledby="case-context-title"
       >
         <div
@@ -59,12 +61,8 @@ export function CasesPage() {
           data-reveal=""
         >
           <div>
-            <div className={styles['home-kicker']}>04 / Ваша площадка</div>
-            <h2 id="case-context-title">
-              Контекст меняет
-              <br />
-              <span className={styles['home-muted-title']}>картину.</span>
-            </h2>
+            <div className={styles['home-kicker']}>Ваша площадка</div>
+            <h2 id="case-context-title">Контекст меняет картину.</h2>
           </div>
           <p>
             Один сценарий проверяется

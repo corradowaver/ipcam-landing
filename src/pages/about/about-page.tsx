@@ -81,13 +81,13 @@ export function AboutPage({ links }: { links: { services: string } }) {
             Смысл видеоаналитики появляется там, где есть конкретный вопрос к
             происходящему.{' '}
           </p>
-          <span className={styles['about-cross']} aria-hidden="true">
-            +
-          </span>
         </div>
       </section>
       <section
-        className={editorialStyles['sub-section']}
+        className={[
+          editorialStyles['sub-section'],
+          editorialStyles['sub-section-compact'],
+        ].join(' ')}
         aria-labelledby="about-principles-title"
       >
         <div
@@ -99,14 +99,10 @@ export function AboutPage({ links }: { links: { services: string } }) {
         >
           <div>
             <div className={editorialStyles['home-kicker']}>
-              02 / Инженерный подход
+              Инженерный подход
             </div>
             <h2 id="about-principles-title">
-              Понятная последовательность.
-              <br />
-              <span className={editorialStyles['home-muted-title']}>
-                Проверяемые решения.
-              </span>
+              Понятная последовательность. Проверяемые решения.
             </h2>
           </div>
         </div>
@@ -157,15 +153,9 @@ export function AboutPage({ links }: { links: { services: string } }) {
         >
           <div>
             <div className={editorialStyles['home-kicker']}>
-              03 / Этапы сотрудничества
+              Этапы сотрудничества
             </div>
-            <h2 id="about-journey-title">
-              Двигаемся
-              <br />
-              <span className={editorialStyles['home-muted-title']}>
-                последовательно.
-              </span>
-            </h2>
+            <h2 id="about-journey-title">Двигаемся последовательно.</h2>
           </div>
           <a
             href={links.services}

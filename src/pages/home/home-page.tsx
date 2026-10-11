@@ -100,19 +100,20 @@ export function HomePage({
         <HomeCapabilities />{' '}
       </section>
       <section
-        className={[styles['home-section'], motionStyles.reveal].join(' ')}
+        className={[
+          styles['home-section'],
+          styles['home-process'],
+          motionStyles.reveal,
+        ].join(' ')}
         aria-labelledby="home-process-title"
         data-reveal=""
       >
         <div className={styles['home-section-head']}>
           <div>
             <div className={editorialStyles['home-kicker']}>
-              <span className={editorialStyles['home-section-number']}>02</span>
-              Как это работает{' '}
+              Как это работает
             </div>
-            <h2 id="home-process-title">
-              От камеры —<br />к пониманию.
-            </h2>
+            <h2 id="home-process-title">От камеры — к пониманию.</h2>
           </div>
           <p>
             Видео становится нагляднее.
@@ -131,7 +132,7 @@ export function HomePage({
         </div>
       </section>
       <section
-        className={styles['home-section']}
+        className={[styles['home-section'], styles['home-scenarios']].join(' ')}
         aria-labelledby="home-scenarios-title"
       >
         <div
@@ -141,17 +142,8 @@ export function HomePage({
           data-reveal=""
         >
           <div>
-            <div className={editorialStyles['home-kicker']}>
-              <span className={editorialStyles['home-section-number']}>03</span>
-              Сценарии{' '}
-            </div>
-            <h2 id="home-scenarios-title">
-              Разные площадки.
-              <br />
-              <span className={editorialStyles['home-muted-title']}>
-                Ваш контекст.
-              </span>
-            </h2>
+            <div className={editorialStyles['home-kicker']}>Сценарии</div>
+            <h2 id="home-scenarios-title">Разные площадки. Ваш контекст.</h2>
           </div>
           <a
             href={links.cases}

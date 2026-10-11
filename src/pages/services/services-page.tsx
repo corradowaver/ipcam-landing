@@ -103,9 +103,7 @@ export function ServicesPage({
           <h2 id="service-method-title">
             Четыре шага.
             <br />
-            <span className={editorialStyles['home-muted-title']}>
-              Одна задача.
-            </span>
+            Одна задача.
           </h2>
           <p>У каждого этапа — свой проверяемый результат.</p>
           <div className={styles['service-index-mark']} aria-hidden="true">
@@ -130,14 +128,12 @@ export function ServicesPage({
         <AnalysisPhoto />{' '}
         <div>
           <div className={editorialStyles['home-kicker']}>
-            02 / Проверяем на примере
+            Проверяем на примере
           </div>
           <h2 id="helmet-demo-title">
             Контроль касок.
             <br />
-            <span className={editorialStyles['home-muted-title']}>
-              Сначала — проверка.
-            </span>
+            Сначала — проверка.
           </h2>
           <p>
             Статус каски имитируется для демонстрации интерфейса. Это не готовое

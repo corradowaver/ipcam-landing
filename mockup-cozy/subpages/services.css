@@ -1,4 +1,5 @@
 #ipcam-prototype .service-method {
+  --section-space: clamp(36px, 4vw, 56px) clamp(56px, 6vw, 88px);
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: 80px;
@@ -84,6 +85,7 @@
   content: '↳';
 }
 #ipcam-prototype .service-demonstration {
+  --section-space: clamp(40px, 4vw, 56px) clamp(56px, 7vw, 96px);
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;

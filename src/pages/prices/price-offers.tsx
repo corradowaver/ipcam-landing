@@ -38,20 +38,31 @@ export function PriceOffers({ onDemoRequest }: { onDemoRequest: () => void }) {
     <section
       className={styles['price-offers']}
       aria-label="Демонстрационные предложения"
+      onFocus={(event) => {
+        const row = event.currentTarget
+        if (row.scrollWidth <= row.clientWidth) return
+        // Mobile browsers may leave a partially visible focused offer clipped.
+        event.target.closest('article')?.scrollIntoView({
+          block: 'nearest',
+          inline: 'center',
+          behavior: 'instant',
+        })
+      }}
     >
       {prices.map((item, index) => (
         <article
           key={item.title}
           className={[styles['price-offer'], motionStyles.reveal].join(' ')}
           data-featured={item.featured}
+          aria-labelledby={`price-title-${String(index)}`}
           data-reveal=""
         >
           <div className={styles['price-offer-index']}>
             <span>0{index + 1} / Формат проекта</span>
             <span aria-hidden="true" />
           </div>
-          <div className={styles['price-offer-main']}>
-            <h2>{item.title}</h2>
+          <div>
+            <h2 id={`price-title-${String(index)}`}>{item.title}</h2>
             <div className={styles['price-offer-value']}>{item.price}</div>
             <div className={styles['price-offer-caption']}>{item.caption}</div>
           </div>
